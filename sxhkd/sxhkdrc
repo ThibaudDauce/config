@@ -1,0 +1,60 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + y
+	notify-send "`date`" -t 2000
+
+ctrl + alt + Delete
+	killall bspwm
+
+super + s
+	/home/thibaud/Recording/record.sh
+#	recordmydesktop --device pulse --workdir /home/thibaud/Recording -o /home/thibaud/Recording/"$(date +%F_%T)".ogv &> /home/thibaud/Recording/log
+
+super + d
+	killall ffmpeg
+#	killall recordmydesktop
+
+# program launcher
+alt + @space
+	rofi -show run
+
+ctrl + {_, shift +} q
+	bspc node -{c,k}
+
+XF86MonBrightnessUp
+	xbacklight -inc 10
+
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+XF86AudioRaiseVolume
+	pamixer -i 10
+
+XF86AudioLowerVolume
+	pamixer -d 10
+
+XF86AudioMute
+	pamixer -t
+
+alt + c
+	/home/thibaud/left.sh
+
+alt + t
+	/home/thibaud/down.sh
+
+alt + s
+	/home/thibaud/up.sh
+
+alt + r
+	/home/thibaud/right.sh
+
+alt + {_,shift + } Tab
+        bspc node -f '{next,prev}.local.!hidden.window'
+
+alt + f
+	bspc node -t floating
+
+

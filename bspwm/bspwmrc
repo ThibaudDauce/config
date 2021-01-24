@@ -1,0 +1,41 @@
+#! /bin/sh
+
+xsetroot -solid rgb:F7/FA/FC
+xsetroot -cursor_name left_ptr
+
+sxhkd -m -1 &
+dunst &
+
+bspc monitor -d Web Mail Term Code
+bspc desktop Web --layout monocle
+bspc desktop Mail --layout monocle
+bspc desktop Term --layout monocle
+bspc desktop Code --layout monocle
+
+bspc config border_width         0
+bspc config window_gap           0
+
+#bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a firefox desktop='Web' #follow=on focus=on
+bspc rule -a discord desktop='Web'
+bspc rule -a Terminator desktop='Term'
+bspc rule -a Thunderbird desktop='Mail'
+bspc rule -a code-oss desktop='Code'
+bspc rule -a Sublime_text desktop='Code'
+
+bspc rule -a OpenGL state=floating
+
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
+
+firefox&
+terminator&
+protonmail-bridge --no-window &
+thunderbird&
+discord&
+nextcloud --background &

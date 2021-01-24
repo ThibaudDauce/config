@@ -1,0 +1,3 @@
+date +"%F %T" >> /home/thibaud/Documents/Administratif/free
+http get https://mobile.free.fr/moncompte/index.php Host:"mobile.free.fr" User-Agent:"Mozilla/5.0 (X11; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0" Accept:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" Accept-Language:"fr-FR,fr;q=0.8,en-US;q=0.5,en;q=0.3" Accept-Encoding:"gzip, deflate, br" DNT:"1" Connection:"keep-alive" Cookie:"nr1=983cbaeac7271e6e3b40e946bdf89b0c; PHPSESSID=gsf73a54isfhpvsb6v60rifhl3; auth_mobile=1; desktop_version=1" Upgrade-Insecure-Requests:"1" Cache-Control:"max-age=0" | grep -P ">(\d+(\.)?\d*) Gio<" -o | grep -P "(\d+(\.)?\d*)" -o >> /home/thibaud/Documents/Administratif/free
+echo '' >> /home/thibaud/Documents/Administratif/free
