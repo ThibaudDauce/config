@@ -6,11 +6,12 @@ xsetroot -cursor_name left_ptr
 sxhkd -m -1 &
 dunst &
 
-bspc monitor -d Web Mail Term Code
+bspc monitor -d Web Mail Term Code Others
 bspc desktop Web --layout monocle
 bspc desktop Mail --layout monocle
 bspc desktop Term --layout monocle
 bspc desktop Code --layout monocle
+bspc desktop Others
 
 bspc config border_width         0
 bspc config window_gap           0
@@ -28,6 +29,7 @@ bspc rule -a code-oss desktop='Code'
 bspc rule -a Sublime_text desktop='Code'
 
 bspc rule -a OpenGL state=floating
+bspc rule -a nextcloud desktop='Others' state=floating
 
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on

@@ -40,16 +40,19 @@ XF86AudioMute
 	pamixer -t
 
 alt + c
-	/home/thibaud/left.sh
+	/home/thibaud/Code/config/left.sh
 
 alt + t
-	/home/thibaud/down.sh
+	/home/thibaud/Code/config/down.sh
 
 alt + s
-	/home/thibaud/up.sh
+	/home/thibaud/Code/config/up.sh
 
 alt + r
-	/home/thibaud/right.sh
+	/home/thibaud/Code/config/right.sh
+
+alt + n
+	/home/thibaud/Code/config/desktop_others.sh
 
 alt + {_,shift + } Tab
         bspc node -f '{next,prev}.local.!hidden.window'
