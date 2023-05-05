@@ -30,14 +30,12 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	xbacklight -dec 10
 
-XF86AudioRaiseVolume
-	pamixer -i 10
-
 XF86AudioLowerVolume
-	pamixer -d 10
-
+	amixer set Master 5%-
+XF86AudioRaiseVolume
+	amixer set Master 5%+
 XF86AudioMute
-	pamixer -t
+        amixer set Master toggle
 
 alt + c
 	/home/thibaud/Code/config/left.sh

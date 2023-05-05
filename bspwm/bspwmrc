@@ -3,7 +3,7 @@
 xsetroot -solid rgb:F7/FA/FC
 xsetroot -cursor_name left_ptr
 
-sxhkd -m -1 &
+sxhkd -m -1 > /tmp/sxhkd_logs 2>&1 &
 dunst &
 
 bspc monitor -d Web Mail Term Code Others
@@ -24,20 +24,26 @@ bspc config gapless_monocle      true
 bspc rule -a firefox desktop='Web' #follow=on focus=on
 bspc rule -a discord desktop='Web'
 bspc rule -a Terminator desktop='Term'
-bspc rule -a Thunderbird desktop='Mail'
+bspc rule -a thunderbird desktop='Mail'
 bspc rule -a code-oss desktop='Code'
+bspc rule -a Code desktop='Code'
 bspc rule -a Sublime_text desktop='Code'
+bspc rule -a "Github Desktop" desktop='Code'
+bspc rule -a jetbrains-idea-ce desktop='Code'
 
 bspc rule -a OpenGL state=floating
 bspc rule -a nextcloud desktop='Others' state=floating
+bspc rule -a "Android Emulator*" desktop='Others' state=floating
+bspc rule -a "simple-entreprise" desktop='Others' state=floating
 
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
+#stalonetray&
 firefox&
 terminator&
 protonmail-bridge --no-window &
 thunderbird&
-discord&
-nextcloud --background &
+#nextcloud --background &
+dropbox &
