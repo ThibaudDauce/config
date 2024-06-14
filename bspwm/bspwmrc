@@ -4,7 +4,7 @@ xsetroot -solid rgb:F7/FA/FC
 xsetroot -cursor_name left_ptr
 
 sxhkd -m -1 > /tmp/sxhkd_logs 2>&1 &
-dunst &
+# dunst &
 
 bspc monitor -d Web Mail Term Code Others
 bspc desktop Web --layout monocle
@@ -26,6 +26,7 @@ bspc rule -a discord desktop='Web'
 bspc rule -a Terminator desktop='Term'
 bspc rule -a thunderbird desktop='Mail'
 bspc rule -a code-oss desktop='Code'
+bspc rule -a nvim-qt desktop='Code'
 bspc rule -a Code desktop='Code'
 bspc rule -a Sublime_text desktop='Code'
 bspc rule -a "Github Desktop" desktop='Code'
@@ -40,10 +41,18 @@ bspc rule -a "simple-entreprise" desktop='Others' state=floating
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
-#stalonetray&
+# Wait for network ready
+ping -w 60 -c 1 192.168.1.1
+
+protonmail-bridge --no-window &
 firefox&
 terminator&
-protonmail-bridge --no-window &
-thunderbird&
-#nextcloud --background &
 dropbox &
+
+while true; do
+    # Wait for ProtonMail Bridge to be ready
+    nc -zv 127.0.0.1 1143 && break
+    sleep 1
+done
+
+thunderbird&
